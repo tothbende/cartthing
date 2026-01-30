@@ -1,3 +1,7 @@
+let items = [];
+let added_items = [];
+
+
 function calculate_price(cart) {
     let total_price = 0;
     const highest_price = Math.max(...cart.map(obj => obj.egysegar));
@@ -12,15 +16,30 @@ function calculate_price(cart) {
 
 function additem(id) {
     const product = items.find(obj => obj.id == id);
+    const product_in_added_list = added_items.find(obj => obj.item == product);
+
+    if (product_in_added_list == undefined) {
+        added_items.push({item : product, amount : 1});
+        document.getElementById("cart").innerHTML += `
+            <li id="cart-${product.title}">
+                <div class="itemname">
+                    <p>${product.title}</p>
+                </div>
+                <div class="itemprice">
+                    <p>${product.price}€</p>
+                </div>
+            </li>
+        `
+    }
+    else {
+        
+    }
+    
     console.log(product);
 }
 
 
-let items = [];
-
-
 getData(url, (data) => {
-    console.log(data);
     items = data;
     data.forEach(obj => document.getElementById("items").innerHTML += `
         <li>
