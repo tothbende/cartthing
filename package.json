@@ -1,0 +1,14 @@
+{
+  "name": "2026-01-27-spread-again",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vitest": "^4.0.18"
+  }
+}
